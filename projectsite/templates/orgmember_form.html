@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <h4 class="page-title">{% if form.instance.pk %}Update Member{% else %}Add New Member{% endif %}</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          
+          <div class="card-header">
+            <div class="card-title">Member Information</div>
+            <div class="card-category">Manage organization members</div>
+          </div>
+
+         
+          <div class="col-md-6">
+            <div class="card-body">
+              <form method="post" novalidate>
+                {% csrf_token %}
+
+                <div class="form-group">
+                  {{ form.student.label_tag }}
+                  {{ form.student }}
+                  {{ form.student.errors }}
+                </div>
+                <div class="form-group">
+                  {{ form.organization.label_tag }}
+                  {{ form.organization }}
+                  {{ form.organization.errors }}
+                </div>
+                <div class="form-group">
+                  {{ form.date_joined.label_tag }}
+                  {{ form.date_joined }}
+                  {{ form.date_joined.errors }}
+                </div>
+
+                
+                <div class="form-group mt-3">
+                  <button type="submit" class="btn btn-primary btn-rounded">
+                    {% if form.instance.pk %}Update{% else %}Add{% endif %}
+                  </button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
