@@ -3,36 +3,38 @@
 {% block content %}
 <div class="content">
   <div class="container-fluid">
-    <h4 class="page-title">Colleges</h4>
+    <h4 class="page-title">Programs</h4>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">List of Colleges</div>
-            <div class="card-category">Manage College</div>
+            <div class="card-title">List of Programs</div>
+            <div class="card-category">Manage Programs</div>
           </div>
           <div class="card-body">
-            <a href="{% url 'college-add' %}" class="btn btn-success btn-rounded mb-3">Add College</a>
+            <a href="{% url 'program-add' %}" class="btn btn-success btn-rounded mb-3">Add Program</a>
 
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>College Name</th>
+                  <th>Program Name</th>
+                  <th>College</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {% for college in colleges %}
+                {% for program in programs %}
                 <tr>
-                  <td>{{ college.college_name }}</td>
+                  <td>{{ program.prog_name }}</td>
+                  <td>{{ program.college.college_name }}</td>
                   <td>
-                    <a href="{% url 'college-update' college.id %}">Edit</a> |
-                    <a href="{% url 'college-delete' college.id %}" class="text-danger">Delete</a>
+                    <a href="{% url 'program-update' program.id %}">Edit</a> |
+                    <a href="{% url 'program-delete' program.id %}" class="text-danger">Delete</a>
                   </td>
                 </tr>
                 {% empty %}
                 <tr>
-                  <td colspan="2" class="text-center">No Colleges Found</td>
+                  <td colspan="3" class="text-center">No Programs Found</td>
                 </tr>
                 {% endfor %}
               </tbody>
