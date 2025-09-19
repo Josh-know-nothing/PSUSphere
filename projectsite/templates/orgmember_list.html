@@ -13,7 +13,7 @@
             <div class="card-title">List of Members</div>
             <div class="card-category">Manage organization members</div>
           </div>
-
+               
          
           <br />
           <div class="col-md-12 row">
@@ -29,13 +29,30 @@
                 </div>
               </form>
             </div>
-            <div class="col-md-6">
+             <div class="col-md-6">
               <div class="pull-right">
                 <a href="{% url 'orgmember-add' %}" class="btn btn-success btn-rounded">
                   Add Member
                 </a>
               </div>
             </div>
+            <div class="col-md-12">
+                  <form method="get" class="row g-2 align-items-center">
+                    <div class="col-auto">
+                      <label for="smallSelect" class="col-form-label">Sort by</label>
+                    </div>
+                  <div class="col-auto">
+                    <select class="form-control form-control-sm" id="smallSelect" name="sort_by">
+                      <option value="student">Member's name</option>
+                      <option value="date_joined">Date Joined</option>
+                    </select>
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-primary btn-sm btn-rounded">Sort</button>
+                  </div>
+                </form>
+            </div>
+           
           </div>
 
           
